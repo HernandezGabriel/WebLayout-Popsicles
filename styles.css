@@ -22,8 +22,6 @@ nav ul {
 }
 
 nav ul li {
-
-    /* justify-content: space-evenly; */
     list-style: none;
     width: 30%;
     padding: 10px;
@@ -34,6 +32,9 @@ nav ul li {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
+    white-space:nowrap;
+
+    /* text-overflow:ellipsis; */
 
 }
 a{
@@ -56,38 +57,104 @@ main{
     display: grid;
     grid-template-areas:
      "DYK DYK"
+     "row-line row-line"
      "Race Refreshed";
      grid-template-columns: 1fr 1fr;
 
+    align-items: center;
 
-     gap: 20px;
-     column-gap: 50px;
-     align-items: center;
+    margin: 10px;
+    border-color: #87CEEB;
+    margin-bottom:5px;
 }
+
 div#DYK{
 
     grid-area: DYK;
+
+    grid-area: DYK DYK;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+
+
+    display:grid;
+    grid-template-areas:
+    "picture heading"
+    "picture list";
 }
+div#DYK img {
+    grid-area: picture;
+
+    display: inline-block;
+    /* object-fit: cover; */
+    /* margin-right: 0px; */
+    height: 350px;
+    width:max-content;
+
+}
+
 h2{
-    display: inline;
+    gird-area: heading;
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: flex-start; */
+
+}
+ div#DYK ul{
+    grid-area: list;
+
+    /* display:flex; */
+    align-items: start;
+
 }
 p{
-    display: inline;
+    grid-area:text;
+    display: inline-block;
+    width: 65%;
+}
+
+.row-line{
+    grid-area: row-line;
+    border: 2.5px solid #87CEEB;
+    background-color: #87CEEB;
+
+
 }
 
 div#Race{
+    display: grid;
+    grid-template-areas:
+    "blue-pop heading"
+    "blue-pop text";
     grid-area: Race;
+    border-right: solid 5px #87CEEB;
 }
-div#Refreshed{
-    grid-area: Refreshed;
+div#Race img {
+    grid-area: blue-pop;
+
+    display: inline-block;
+    /* object-fit: cover; */
+    /* margin-right: 0px; */
+    height: 350px;
+    width:max-content;
 
 }
-main img {
-    display: inline;
-    object-fit: cover;
-    margin-right: 20px;
-    height: 350px;
-    width: 35%;
+
+div#Refreshed{
+    display:flex;
+    flex-direction: column;
+    grid-template-areas:
+    "heading"
+    "text"
+    "button";
+    grid-area: Refreshed;
+    align-items: center;
+    justify-items: center;
+
+    text-align: center;
+
 }
 
 main li:before {
@@ -99,7 +166,16 @@ main li:before {
 main, section, footer {
     background-color: #ffffff;
     border-radius: 5px;
-    padding: 20px;
+    /* padding: 20px; */
+}
+footer{
+
+    margin: 10px;
+    margin-top: 0%;
+
+}
+div#CC{
+    padding-left: 15px;
 }
 
 .store-button { /* used for store link in "Get refreshed" section */
@@ -111,4 +187,116 @@ main, section, footer {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
+}
+
+
+@media only screen and (max-width:800px) {
+
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+
+    header{
+        display: grid;
+        order:0;
+        grid-template-areas:
+        "logo heading"
+        "nav nav";
+    }
+    header img{
+        grid-area:logo;
+    }
+    h1{
+        grid-area:heading;
+    }
+    nav{
+        grid-area: nav;
+        order:1;
+        /* padding:0px; */
+
+
+    }
+    nav ul{
+    }
+    nav ul li {
+        /* list-style: none; */
+        width: 30%;
+        padding: 5px;
+    }
+
+
+    main{
+        display:flex;
+        flex-direction: column;
+    }
+
+    div#DYK{
+
+        order:0;
+        display:flex;
+        flex-direction: column;
+        width: auto;
+        border-bottom:5px solid #87CEEB;
+
+    }
+    div#DYK img{
+        max-width: 100%;
+
+        height:auto;
+    }
+
+    div#Race{
+        order:1;
+        display:grid;
+        grid-template-areas:
+        "blue-pop heading"
+        "text text";
+        border:none;
+        border-bottom:5px solid #87CEEB;
+        padding: 5%;
+
+
+    }
+    .row-line{
+        display:none;
+    }
+    div#Race img{
+        max-width: 50%;
+        height:auto;
+        justify-self: center;
+
+    }
+    div#Race p{
+        justify-self: center;
+        width: 100%;
+        padding: 2%;
+
+    }
+
+    div#Refreshed{
+        order:2;
+        padding: 5%;
+
+    }
+    div#Refreshed p{
+        justify-self: center;
+        width: 100%;
+        padding: 2%;
+
+    }
+
+    .store-button{
+        margin-bottom: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
 }
