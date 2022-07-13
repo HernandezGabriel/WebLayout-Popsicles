@@ -1,20 +1,46 @@
+*{
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #87CEEB;
 }
 
+header{
+    display: flex;
+}
+nav{
+    flex-grow: 2;
+}
 nav ul {
+
+    display: flex;
+    justify-content: space-evenly;
+
     margin: 0;
     padding: 20px 0 0 0;
 }
 
 nav ul li {
+
+    /* justify-content: space-evenly; */
     list-style: none;
     width: 30%;
-    background-color: #00afef;
+    padding: 10px;
     border-radius: 5px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #00afef;
+    font-weight: bold;
     text-align: center;
-    line-height: 50px;
+    text-transform: uppercase;
+
+}
+a{
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+
 }
 
 header img {
@@ -22,11 +48,42 @@ header img {
     width: auto;
 }
 header h1 {
+    flex-grow: 1;
     padding-left: 20px;
     padding-top: 10px;
 }
+main{
+    display: grid;
+    grid-template-areas:
+     "DYK DYK"
+     "Race Refreshed";
+     grid-template-columns: 1fr 1fr;
 
+
+     gap: 20px;
+     column-gap: 50px;
+     align-items: center;
+}
+div#DYK{
+
+    grid-area: DYK;
+}
+h2{
+    display: inline;
+}
+p{
+    display: inline;
+}
+
+div#Race{
+    grid-area: Race;
+}
+div#Refreshed{
+    grid-area: Refreshed;
+
+}
 main img {
+    display: inline;
     object-fit: cover;
     margin-right: 20px;
     height: 350px;
